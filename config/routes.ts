@@ -18,8 +18,13 @@ export default [
       {
         name: 'signin',
         path: '/authen/signin',
-        component: './User/SignIn',
+        component: './Authen/SignIn',
       },
+      {
+        name: 'signup',
+        path: '/authen/signup',
+        component: './Authen/SignUp',
+      }
     ],
   },
   {
