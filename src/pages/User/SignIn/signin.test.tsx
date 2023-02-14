@@ -17,11 +17,11 @@ let server: {
   close: () => void;
 };
 
-describe('Login Page', () => {
+describe('SignIn Page', () => {
   beforeAll(async () => {
     server = await startMock({
       port: 8000,
-      scene: 'login',
+      scene: 'signin',
     });
   });
 
@@ -29,7 +29,7 @@ describe('Login Page', () => {
     server?.close();
   });
 
-  it('should show login form', async () => {
+  it('should show signin form', async () => {
     const historyRef = React.createRef<any>();
     const rootContainer = render(
       <TestBrowser
@@ -55,7 +55,7 @@ describe('Login Page', () => {
     rootContainer.unmount();
   });
 
-  it('should login success', async () => {
+  it('should signin success', async () => {
     const historyRef = React.createRef<any>();
     const rootContainer = render(
       <TestBrowser
@@ -80,7 +80,7 @@ describe('Login Page', () => {
       fireEvent.change(passwordInput, { target: { value: 'ant.design' } });
     });
 
-    await (await rootContainer.findByText('Login')).click();
+    await (await rootContainer.findByText('SignIn')).click();
 
     // 等待接口返回结果
     await waitTime(5000);

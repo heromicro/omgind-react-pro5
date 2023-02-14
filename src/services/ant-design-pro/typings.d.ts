@@ -23,7 +23,7 @@ declare namespace API {
     phone?: string;
   };
 
-  type LoginResult = {
+  type SignInResult = {
     status?: string;
     type?: string;
     currentAuthority?: string;
@@ -61,10 +61,10 @@ declare namespace API {
     status?: string;
   };
 
-  type LoginParams = {
+  type SignInParams = {
     username?: string;
     password?: string;
-    autoLogin?: boolean;
+    autoSignIn?: boolean;
     type?: string;
   };
 

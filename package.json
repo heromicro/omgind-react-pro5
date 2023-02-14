@@ -22,7 +22,7 @@
     "prepare": "husky install",
     "prettier": "prettier -c --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
     "preview": "npm run build && max preview --port 8000",
-    "record": "cross-env NODE_ENV=development REACT_APP_ENV=test max record --scene=login",
+    "record": "cross-env NODE_ENV=development REACT_APP_ENV=test max record --scene=signin",
     "serve": "umi-serve",
     "start": "cross-env UMI_ENV=dev max dev",
     "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none UMI_ENV=dev max dev",

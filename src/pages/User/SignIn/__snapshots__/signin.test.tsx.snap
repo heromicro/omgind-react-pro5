@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Page should login success 1`] = `
+exports[`SignIn Page should signin success 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro"
@@ -572,7 +572,7 @@ exports[`Login Page should login success 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Login Page should show login form 1`] = `
+exports[`SignIn Page should show login form 1`] = `
 <DocumentFragment>
   <div
     class="css-trkbkn"
@@ -681,7 +681,7 @@ exports[`Login Page should show login form 1`] = `
                           role="tab"
                           tabindex="0"
                         >
-                          Account Login
+                          Account SignIn
                         </div>
                       </div>
                       <div
@@ -696,7 +696,7 @@ exports[`Login Page should show login form 1`] = `
                           role="tab"
                           tabindex="0"
                         >
-                          Phone Login
+                          Phone SignIn
                         </div>
                       </div>
                       <div
@@ -933,7 +933,7 @@ exports[`Login Page should show login form 1`] = `
                     <input
                       checked=""
                       class="ant-checkbox-input"
-                      id="autoLogin"
+                      id="autoSignIn"
                       type="checkbox"
                       value=""
                     />
@@ -957,7 +957,7 @@ exports[`Login Page should show login form 1`] = `
                 type="button"
               >
                 <span>
-                  Login
+                  SignIn
                 </span>
               </button>
             </form>
@@ -965,7 +965,7 @@ exports[`Login Page should show login form 1`] = `
           <div
             class="ant-pro-form-login-main-other "
           >
-            Login with :
+            SignIn with :
             <span
               aria-label="alipay-circle"
               class="anticon anticon-alipay-circle css-18yqg2u"

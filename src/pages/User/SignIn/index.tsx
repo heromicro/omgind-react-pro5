@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
-import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import { signin } from '@/services/ant-design-pro/api';
+import { getFakeCaptcha } from '@/services/ant-design-pro/signin';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -68,7 +68,7 @@ const Lang = () => {
   );
 };
 
-const LoginMessage: React.FC<{
+const SigninMessage: React.FC<{
   content: string;
 }> = ({ content }) => {
   return (
@@ -83,8 +83,10 @@ const LoginMessage: React.FC<{
   );
 };
 
-const Login: React.FC = () => {
-  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+const SignIn: React.FC = () => {
+
+  const [userLoginState, setUserLoginState] = useState<API.SignInResult>({});
+
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
 
@@ -114,16 +116,16 @@ const Login: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (values: API.LoginParams) => {
+  const handleSubmit = async (values: API.SignInParams) => {
     try {
       // 登录
-      const msg = await login({ ...values, type });
+      const msg = await signin({ ...values, type });
       if (msg.status === 'ok') {
-        const defaultLoginSuccessMessage = intl.formatMessage({
+        const defaultSignInSuccessMessage = intl.formatMessage({
           id: 'pages.signin.success',
           defaultMessage: '登录成功！',
         });
-        message.success(defaultLoginSuccessMessage);
+        message.success(defaultSignInSuccessMessage);
         await fetchUserInfo();
         const urlParams = new URL(window.location.href).searchParams;
         history.push(urlParams.get('redirect') || '/');
@@ -133,12 +135,12 @@ const Login: React.FC = () => {
       // 如果失败去设置用户错误信息
       setUserLoginState(msg);
     } catch (error) {
-      const defaultLoginFailureMessage = intl.formatMessage({
+      const defaultSignInFailureMessage = intl.formatMessage({
         id: 'pages.signin.failure',
         defaultMessage: '登录失败，请重试！',
       });
       console.log(error);
-      message.error(defaultLoginFailureMessage);
+      message.error(defaultSignInFailureMessage);
     }
   };
   const { status, type: loginType } = userLoginState;
@@ -170,18 +172,18 @@ const Login: React.FC = () => {
           title="OMGIND"
           // subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
-            autoLogin: true,
+            autoSignIn: true,
           }}
           actions={[
             // <FormattedMessage
-            //   key="loginWith"
+            //   key="signinWith"
             //   id="pages.signin.signinWith"
             //   defaultMessage="其他登录方式"
             // />,
             // <ActionIcons key="icons" />,
           ]}
           onFinish={async (values) => {
-            await handleSubmit(values as API.LoginParams);
+            await handleSubmit(values as API.SignInParams);
           }}
         >
           <Tabs
@@ -192,14 +194,14 @@ const Login: React.FC = () => {
               {
                 key: 'account',
                 label: intl.formatMessage({
-                  id: 'pages.signin.accountLogin.tab',
+                  id: 'pages.signin.accountSignIn.tab',
                   defaultMessage: '账户密码登录',
                 }),
               },
               // {
               //   key: 'mobile',
               //   label: intl.formatMessage({
-              //     id: 'pages.signin.phoneLogin.tab',
+              //     id: 'pages.signin.phoneSignIn.tab',
               //     defaultMessage: '手机号登录',
               //   }),
               // },
@@ -207,9 +209,9 @@ const Login: React.FC = () => {
           />
 
           {status === 'error' && loginType === 'account' && (
-            <LoginMessage
+            <SigninMessage
               content={intl.formatMessage({
-                id: 'pages.signin.accountLogin.errorMessage',
+                id: 'pages.signin.accountSignIn.errorMessage',
                 defaultMessage: '账户或密码错误(admin/ant.design)',
               })}
             />
@@ -263,7 +265,7 @@ const Login: React.FC = () => {
             </>
           )}
 
-          {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
+          {status === 'error' && loginType === 'mobile' && <SigninMessage content="验证码错误" />}
           {type === 'mobile' && (
             <>
               <ProFormText
@@ -317,7 +319,7 @@ const Login: React.FC = () => {
                     })}`;
                   }
                   return intl.formatMessage({
-                    id: 'pages.signin.phoneLogin.getVerificationCode',
+                    id: 'pages.signin.phoneSignIn.getVerificationCode',
                     defaultMessage: '获取验证码',
                   });
                 }}
@@ -350,7 +352,7 @@ const Login: React.FC = () => {
               marginBottom: 24,
             }}
           >
-            <ProFormCheckbox noStyle name="autoLogin">
+            <ProFormCheckbox noStyle name="autoSignIn">
               <FormattedMessage id="pages.signin.rememberMe" defaultMessage="自动登录" />
             </ProFormCheckbox>
             <a
@@ -368,4 +370,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default SignIn;

@@ -77,7 +77,7 @@ export namespace API {
     current: number;
   };
 
-  /** POST /api/login/outLogin */
+  /** POST /api/authen/signOut */
   export type POST_API_LOGIN_OUT_LOGIN_QUERY = {
     /** example:  123 */
     token: string;
@@ -92,7 +92,7 @@ export namespace API {
     success: boolean;
   };
 
-  /** POST /api/login/account */
+  /** POST /api/authen/account */
   export type POST_API_LOGIN_ACCOUNT_QUERY = {
     /** example:  123 */
     token: string;
@@ -104,7 +104,7 @@ export namespace API {
     /** example: ant.design */
     password: string;
     /** example: true */
-    autoLogin: boolean;
+    autoSignIn: boolean;
     /** example: account */
     type: string;
   };

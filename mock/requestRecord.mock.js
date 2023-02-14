@@ -315,8 +315,8 @@ module.exports = {
     pageSize: 20,
     current: 1,
   },
-  'POST /api/login/outLogin': { data: {}, success: true },
-  'POST /api/login/account': {
+  'POST /api/authen/signOut': { data: {}, success: true },
+  'POST /api/authen/account': {
     status: 'ok',
     type: 'account',
     currentAuthority: 'admin',

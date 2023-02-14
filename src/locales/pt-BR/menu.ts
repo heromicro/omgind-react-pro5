@@ -4,7 +4,7 @@ export default {
   'menu.home': 'Início',
   'menu.admin': 'Admin',
   'menu.admin.sub-page': 'Sub-Page',
-  'menu.signin': 'Login',
+  'menu.signin': 'SignIn',
   'menu.register': 'Registro',
   'menu.register-result': 'Resultado de registro',
   'menu.dashboard': 'Dashboard',

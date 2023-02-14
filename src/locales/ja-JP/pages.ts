@@ -1,7 +1,7 @@
 export default {
   'pages.layouts.userLayout.title': 'Ant Designは、西湖区で最も影響力のあるWebデザイン仕様です。',
-  'pages.signin.accountLogin.tab': 'アカウントログイン',
-  'pages.signin.accountLogin.errorMessage':
+  'pages.signin.accountSignIn.tab': 'アカウントログイン',
+  'pages.signin.accountSignIn.errorMessage':
     'ユーザー名/パスワードが正しくありません(admin/ant.design)',
   'pages.signin.failure': 'ログインに失敗したら、もう一度試してください!',
   'pages.signin.success': 'ログイン成功!',
@@ -9,14 +9,14 @@ export default {
   'pages.signin.username.required': 'ユーザー名を入力してください！',
   'pages.signin.password.placeholder': 'パスワード：ant.design',
   'pages.signin.password.required': 'パスワードを入力してください！',
-  'pages.signin.phoneLogin.tab': '電話ログイン',
-  'pages.signin.phoneLogin.errorMessage': '検証コードエラー',
+  'pages.signin.phoneSignIn.tab': '電話ログイン',
+  'pages.signin.phoneSignIn.errorMessage': '検証コードエラー',
   'pages.signin.phoneNumber.placeholder': '電話番号',
   'pages.signin.phoneNumber.required': '電話番号を入力してください！',
   'pages.signin.phoneNumber.invalid': '電話番号が無効です！',
   'pages.signin.captcha.placeholder': '確認コード',
   'pages.signin.captcha.required': '確認コードを入力してください！',
-  'pages.signin.phoneLogin.getVerificationCode': '確認コードを取得',
+  'pages.signin.phoneSignIn.getVerificationCode': '確認コードを取得',
   'pages.getCaptchaSecondText': '秒',
   'pages.signin.rememberMe': 'Remember me',
   'pages.signin.forgotPassword': 'パスワードをお忘れですか？',

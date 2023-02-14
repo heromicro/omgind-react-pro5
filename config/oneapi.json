@@ -43,11 +43,11 @@
       },
       "x-swagger-router-controller": "api"
     },
-    "/api/login/captcha": {
+    "/api/authen/captcha": {
       "post": {
         "description": "发送验证码",
         "operationId": "getFakeCaptcha",
-        "tags": ["login"],
+        "tags": ["authen"],
         "parameters": [
           {
             "name": "phone",
@@ -72,11 +72,11 @@
         }
       }
     },
-    "/api/login/outLogin": {
+    "/api/authen/signOut": {
       "post": {
         "description": "登录接口",
-        "operationId": "outLogin",
-        "tags": ["login"],
+        "operationId": "signOut",
+        "tags": ["authen"],
         "responses": {
           "200": {
             "description": "Success",
@@ -102,17 +102,17 @@
       },
       "x-swagger-router-controller": "api"
     },
-    "/api/login/account": {
+    "/api/authen/account": {
       "post": {
-        "tags": ["login"],
+        "tags": ["authen"],
         "description": "登录接口",
-        "operationId": "login",
+        "operationId": "signin",
         "requestBody": {
           "description": "登录系统",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginParams"
+                "$ref": "#/components/schemas/SignInParams"
               }
             }
           },
@@ -124,7 +124,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoginResult"
+                  "$ref": "#/components/schemas/SignInResult"
                 }
               }
             }
@@ -386,7 +386,7 @@
           }
         }
       },
-      "LoginResult": {
+      "SignInResult": {
         "type": "object",
         "properties": {
           "status": {
@@ -489,7 +489,7 @@
           }
         }
       },
-      "LoginParams": {
+      "SignInParams": {
         "type": "object",
         "properties": {
           "username": {
@@ -498,7 +498,7 @@
           "password": {
             "type": "string"
           },
-          "autoLogin": {
+          "autoSignIn": {
             "type": "boolean"
           },
           "type": {

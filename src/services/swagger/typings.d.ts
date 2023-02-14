@@ -52,9 +52,9 @@ declare namespace API {
   };
 
   type signinUserParams = {
-    /** The user name for login */
+    /** The user name for signin */
     username: string;
-    /** The password for login in clear text */
+    /** The password for signin in clear text */
     password: string;
   };
 
