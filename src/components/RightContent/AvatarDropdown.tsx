@@ -1,4 +1,4 @@
-import { outLogin } from '@/services/ant-design-pro/api';
+import { signOut } from '@/services/ant-design-pro/api';
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
 import { history, useModel } from '@umijs/max';
@@ -58,8 +58,8 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
   /**
    * 退出登录，并且将当前的 url 保存
    */
-  const loginOut = async () => {
-    await outLogin();
+  const doSignOut = async () => {
+    await signOut();
     const { search, pathname } = window.location;
     const urlParams = new URL(window.location.href).searchParams;
     /** 此方法会跳转到 redirect 参数所在的位置 */
@@ -94,11 +94,11 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
   const onMenuClick = useCallback(
     (event: MenuInfo) => {
       const { key } = event;
-      if (key === 'signout') {
+      if (key === 'dosignout') {
         flushSync(() => {
           setInitialState((s) => ({ ...s, currentUser: undefined }));
         });
-        loginOut();
+        doSignOut();
         return;
       }
       history.push(`/account/${key}`);
@@ -147,7 +147,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
         ]
       : []),
     {
-      key: 'signout',
+      key: 'dosignout',
       icon: <LogoutOutlined />,
       label: '登　　出',
     },
