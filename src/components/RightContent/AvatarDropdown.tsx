@@ -94,7 +94,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
   const onMenuClick = useCallback(
     (event: MenuInfo) => {
       const { key } = event;
-      if (key === 'logout') {
+      if (key === 'signout') {
         flushSync(() => {
           setInitialState((s) => ({ ...s, currentUser: undefined }));
         });
@@ -147,9 +147,9 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
         ]
       : []),
     {
-      key: 'logout',
+      key: 'signout',
       icon: <LogoutOutlined />,
-      label: '退出登录',
+      label: '登　　出',
     },
   ];
 
